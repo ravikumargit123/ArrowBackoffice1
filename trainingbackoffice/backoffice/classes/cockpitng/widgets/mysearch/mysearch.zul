@@ -1,0 +1,59 @@
+<widget xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.zkoss.org/2005/zul">
+	<vbox hflex="true">
+	<hbox align="center">
+		Keyword:
+		<textbox id="keywordBox" />
+		<button id="searchButton" label="Search" />
+		<button id="refreshButton" label="Refresh" />
+	</hbox>
+		<listbox id="argoPriceListBox" mold="paging" pageSize="4" emptyMessage="No Price found in the result" hflex="true" height="150px">
+			<listhead>
+				<listheader label="Part Id" align="center" />
+				<listheader label="Source Code" align="center" />
+				<listheader label="Price" align="center" />
+				<listheader label="Min Quantity" align="center" />
+				<listheader label="Max Quantity" align="center" />
+				<listheader label="Modified Date" align="center" />
+				
+
+			</listhead>
+			<template name="model">
+				<listitem >
+				<listcell label="${each.partId}"></listcell>
+				<listcell label="${each.sourceCode}"></listcell>
+										<listcell label="${each.price}"/>	
+										<listcell label="${each.minQuantity}"/>				
+										<listcell label="${each.maxQuantity}"/>				
+										<listcell label="${each.modifiedDate}"/>				
+				</listitem>
+			</template>
+		</listbox>
+		<toolbar>
+					<button id="getCreateForm" label="New" />
+					<button id="createPrice" label="Save" />
+			<button id="editPrice" label="Update" />
+			<button id="deletePrice" label="Delete" />
+		</toolbar>
+		<groupbox id="visibleGroupBox" hflex="true" mold="3d">
+			<grid hflex="true" >
+				<columns>
+					<column width="120px"/>
+					<column/>
+				</columns>
+				<rows>
+					<row>Part Id <textbox id="partIdText"/></row>
+					<row>Source Code <textbox id="sourceCodeText"/></row>
+					<row>Price	<textbox id="priceText"/></row>
+					<row>Min Quantity	<textbox id="minQuantityText"/></row>	
+					<row>Max Quantity	<textbox id="maxQuantityText"/></row>		
+						
+					<row>Modified Date 
+						<hlayout> 
+							<datebox id="modifiedDateText" />
+						</hlayout>
+					</row>	
+				</rows>
+			</grid>
+		</groupbox>
+	</vbox>
+</widget>
